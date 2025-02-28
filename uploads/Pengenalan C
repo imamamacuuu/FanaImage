@@ -1,0 +1,493 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Pengenalan C#\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "C# (dibaca \"sishap\") adalah bahasa pemrograman berorientasi objek yang dikembangkan oleh Microsoft.\n",
+    "\n",
+    "template awal menulis program C# :"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "class Program\n",
+    "  {\n",
+    "    static void Main()\n",
+    "    {\n",
+    "      // Write your code here;\n",
+    "    }\n",
+    "  }"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- class adalah kontainer dari properties dan methods.\n",
+    "- method Main() adalah method yang pertama kali dijalankan pada kode C#\n",
+    "- C# tidak menggunakan indentasi seperti python, melainkan dibungkus dalam kurung kurawal {}\n",
+    "- Setiap akhir perintah dalam C# diakhiri titik koma ;"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Menerima Input dan memberikan Output pada C#\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "Untuk print suatu data ke konsol:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "Console.Write(\"Hello, World!\");\n",
+    "Console.WriteLine(\"Hello, World!\"); //baris selanjurnya akan menjadi baris baru\n",
+    "Console.Write(\"Hello, World!\");"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Untuk menerima input user"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "Console.ReadLine(); //gak bisa kalo di notebook"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Variables"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Dalam bahasa C# membuat sebuah variabel harus menambahkan tipe datanya (type safety)\n",
+    "Format penulisan variabel dalam C#:\n",
+    "\n",
+    "` tipeData namaVariabel = isidata; `\n",
+    "\n",
+    "Sebuah variabel juga bisa dideklarasikan terlebih dahulu tanpa mengisi datanya.\n",
+    "\n",
+    "\n",
+    "` tipeData namaVariabel; `\n",
+    "\n",
+    "` namaVariabel = isiData; `"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Nama saya Alice, umur saya 20 tahun.\r\n"
+     ]
+    }
+   ],
+   "source": [
+    "string nama = \"Alice\";\n",
+    "int umur;\n",
+    "umur = 20;\n",
+    "Console.WriteLine($\"Nama saya {nama}, umur saya {umur} tahun.\");"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Casting TipeData"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Casting dalam C# menggunakan keyword `convert`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "string angka1 = \"12\";\n",
+    "int angka2 = 13;\n",
+    "Console.WriteLine(angka1 + angka2);\n",
+    "Console.WriteLine(Convert.ToInt32(angka1) + angka2);"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Tipe Data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "<details>\n",
+    "<summary>Tipe Data Angka Bulat</summary>\n",
+    "\n",
+    "| Tipe data | Memori | Range                                                  |\n",
+    "| --------- | :----: | :----------------------------------------------------- |\n",
+    "| `sbyte`   | 1 byte | -128 ~ 127                                             |\n",
+    "| `byte`    | 1 byte | 0 ~ 255                                                |\n",
+    "| `short`   | 2 byte | -32,768 ~ 32,767                                       |\n",
+    "| `ushort`  | 2 byte | 0 ~ 65,535                                             |\n",
+    "| `int`     | 4 byte | -2,147,483,648 ~ 2,147,483,647                         |\n",
+    "| `uint`    | 4 byte | 0 ~ 4,294,967,295                                      |\n",
+    "| `long`    | 8 byte | -9,223,372,036,854,775,808 ~ 9,223,372,036,854,775,807 |\n",
+    "| `ulong`   | 8 byte | 0 ~ 18,446,744,073,709,551,615                         |\n",
+    "\n",
+    "Gunakan sesuai kebutuhan. Yang paling sering digunakan yaitu int dan long.\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "<details>\n",
+    "<summary>Tipe Data Angka Desimal</summary>\n",
+    "\n",
+    "| Tipe data | Memori  | Presisi                        |\n",
+    "| --------- | :-----: | ------------------------------ |\n",
+    "| `float`   | 4 byte  | 6-9 digit desimal              |\n",
+    "| `double`  | 8 byte  | 15-17 digit desimal            |\n",
+    "| `decimal` | 16 byte | 28-29 digit desimal            |\n",
+    "\n",
+    "Semakin tinggi memori yang digunakan, semakin tinggi presisi angka tersebut.\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "<details>\n",
+    "<summary>Tipe Data Teks</summary>\n",
+    "\n",
+    "| Tipe data | Penjelasan                                                                                  |\n",
+    "| --------- | ------------------------------------------------------------------------------------------- |\n",
+    "| `char`    | Untuk menyimpan 1 karakter. Data ditulis di dalam tanda petik satu. (contoh: `'b'`)         |\n",
+    "| `string`  | Untuk menyimpan data teks. Data ditulis di dalam tanda petik dua. (contoh: `\"Hello World\"`) |\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "<details>\n",
+    "<summary>Tipe Data Boolean</summary>\n",
+    "\n",
+    "C# juga menyediakan tipe data untuk kondisi `true` atau `false` yaitu dengan `bool`.\n",
+    "\n",
+    "</details>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Operators"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "<details>\n",
+    "<summary>Operator Aritmatika</summary>\n",
+    "\n",
+    "| Operator | Contoh   |\n",
+    "| -------- | -------- |\n",
+    "| `+`      | `x + y;` |\n",
+    "| `-`      | `x - y;` |\n",
+    "| `*`      | `x * y;` |\n",
+    "| `/`      | `x / y;` |\n",
+    "| `%`      | `x % y;` |\n",
+    "| `++`     | `x++;`   |\n",
+    "| `--`     | `x--;`   |\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "<details>\n",
+    "<summary>Operator Assignment</summary>\n",
+    "\n",
+    "Adalah shorthand operator. Misal terdapat kode `x = x + 5`, dapat dipersingkate dengan `x += 5`\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "<details>\n",
+    "<summary>Operator Komparasi</summary>\n",
+    "\n",
+    "| Operator | Deskripsi                    | Contoh   |\n",
+    "| -------- | ---------------------------- | -------- |\n",
+    "| `==`     | sama dengan                  | `x == y` |\n",
+    "| `!=`     | tidak sama dengan            | `x != y` |\n",
+    "| `>`      | lebih dari                   | `x > y`  |\n",
+    "| `<`      | kurang dari                  | `x < y`  |\n",
+    "| `>=`     | lebih dari atau sama dengan  | `x >= y` |\n",
+    "| `<=`     | kurang dari atau sama dengan | `x <= y` |\n",
+    "\n",
+    "</details>\n",
+    "\n",
+    "<details>\n",
+    "<summary>Operator Logika</summary>\n",
+    "\n",
+    "| Operator | Nama | Contoh         |\n",
+    "| -------- | ---- | -------------- |\n",
+    "| `&&`     | AND  | `true && true` |\n",
+    "| ``       | OR   | `true !! true` |  \n",
+    "| `!`      | NOT  | `!true`        |\n",
+    "\n",
+    "</details>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Percabangan\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "> If Else"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "bool Kondisi = false;\n",
+    "bool KondisiLain = true;\n",
+    "\n",
+    "if (Kondisi)\n",
+    "{\n",
+    "  Console.WriteLine(\"Kondisi bernilai true\");\n",
+    "}\n",
+    "else if (KondisiLain)\n",
+    "{\n",
+    "  Console.WriteLine(\"Kondisi lain bernilai true\");\n",
+    "}\n",
+    "else\n",
+    "{\n",
+    "  Console.WriteLine(\"Kondisi bernilai false\");\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "> Switch Case"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "int angka = 2;\n",
+    "\n",
+    "switch (angka)\n",
+    "{\n",
+    "  case 1:\n",
+    "    Console.WriteLine(\"Angka adalah 1\");\n",
+    "    break; // supaya tidak lanjut ke case selanjutnya\n",
+    "  case 2:\n",
+    "    Console.WriteLine(\"Angka adalah 2\");\n",
+    "    break;\n",
+    "  default:\n",
+    "    Console.WriteLine(\"Angka tidak ditemukan\");\n",
+    "    break;\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Perulangan"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "#### For Loop \n",
+    "\n",
+    "Syntax:\n",
+    "\n",
+    ">for (statement_1; statement_2; statement_3)\n",
+    ">\n",
+    ">{\n",
+    ">\n",
+    ">// kode\n",
+    ">\n",
+    ">}\n",
+    "\n",
+    "- `statement_1` Untuk deklarasi variabel awal\n",
+    "- `statement_2` kondisi apakah kode dalam looping akan dijalankan\n",
+    "- `statement_3` dijalankan **setiap** satu iterasi\n",
+    "\n",
+    "Contoh:\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "for (int i = 0; i < 10; i++)\n",
+    "{\n",
+    "  Console.WriteLine(i);\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### While Loop\n",
+    "\n",
+    "syntax : \n",
+    "\n",
+    ">while (kondisi)\n",
+    ">\n",
+    ">{\n",
+    ">\n",
+    ">  // kode\n",
+    ">\n",
+    ">}\n",
+    "\n",
+    "contoh :\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "vscode": {
+     "languageId": "polyglot-notebook"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "int i = 0;\n",
+    "while (i < 10)\n",
+    "{\n",
+    "    Console.WriteLine(i);\n",
+    "    i++;\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Break/Continue\n",
+    "\n",
+    "- `break` digunakan untuk keluar dari perulangan atau menghentikan pengecekan case pada `switch`\n",
+    "- `continue` digunakan untuk melompati iterasi yang sedang berlangsung dan lanjut ke iterasi selanjutnya"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": ".NET (C#)",
+   "language": "C#",
+   "name": ".net-csharp"
+  },
+  "language_info": {
+   "name": "python"
+  },
+  "polyglot_notebook": {
+   "kernelInfo": {
+    "defaultKernelName": "csharp",
+    "items": [
+     {
+      "aliases": [],
+      "name": "csharp"
+     }
+    ]
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
